@@ -1,0 +1,59 @@
+name: IOS向けのIPA生成
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Xcodeのversion確認
+        run: xcodebuild -version
+
+      - name: UnityRuntimeのtar解凍
+        run: |
+          tar -xJf VRtest/Frameworks/UnityRuntime.framework/UnityRuntime.tar.xz \
+            -C VRtest/Frameworks/UnityRuntime.framework
+
+      - name: 初期化
+        run: |
+          xcodebuild clean \
+            -project VRtest/Unity-iPhone.xcodeproj \
+            -scheme Unity-iPhone \
+            -configuration Release
+
+      - name: アーカイブ（署名なし）
+        run: |
+          xcodebuild archive \
+            -project VRtest/Unity-iPhone.xcodeproj \
+            -scheme Unity-iPhone \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath build/Unity-iPhone.xcarchive \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
+
+      - name: 署名なしIPAの作成
+        run: |
+          mkdir -p build/ipa/Payload
+          brew install tree
+          tree
+          cp -R \
+            build/Unity-iPhone.xcarchive/Products/Applications/VRGameTest.app \
+            build/ipa/Payload/
+
+          cd build/ipa
+          zip -r Unity-iPhone.ipa Payload
+
+      - name: 署名なしIPAのartifactへのアップロード
+        uses: actions/upload-artifact@v7
+        with:
+          archive: false
+          path: build/ipa/Unity-iPhone.ipa
+

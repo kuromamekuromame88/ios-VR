@@ -1,0 +1,3 @@
+File timestamp APIs usage:
+	"System.IO.Directory::GetCreationTime" used in assemblies:		Unity.Purchasing.Stores
+	"System.IO.Directory::GetCreationTimeUtc" used in assemblies:		Unity.Purchasing.Stores

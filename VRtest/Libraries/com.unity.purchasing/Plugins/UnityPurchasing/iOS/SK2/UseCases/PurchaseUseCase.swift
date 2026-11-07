@@ -1,0 +1,278 @@
+import Foundation
+import StoreKit
+
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, visionOS 1.0, *)
+enum PurchaseVerificationError: Error {
+    case failedVerification
+}
+
+/**
+ This protocol can be implemented by any classes that can be used to perform StoreKit product purchase operations.
+ */
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, visionOS 1.0, *)
+public protocol PurchaseUseCaseProtocol {
+    func purchaseProduct(productId: String, options: [String: AnyObject], storefrontChangeCallback: StorefrontCallbackDelegateType?) async -> PurchaseDetails?
+    func addPurchaseIntentListener()
+    func activateInterceptPromotionalPurchases()
+    func checkVerified<T>(_ result: VerificationResult<T>) throws -> T
+    func continuePromotionalPurchases() async
+}
+
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, visionOS 1.0, *)
+public class PurchaseUseCase: NSObject, PurchaseUseCaseProtocol {
+    // Set for purchases the store starts itself (promotional purchase intents) rather than the
+    // managed side. Their failure and deferral callbacks carry it, so they are not taken as the
+    // answer to a managed Purchase call of the same product.
+    @TaskLocal static var isPromotionalPurchase = false
+    // The impression_id of the managed purchase call in progress. Its answers (success and
+    // failure payloads) carry it back, so the managed side can tie their events to the journey.
+    @TaskLocal static var impressionId: String? = nil
+
+    @Dependency private(set) var fetchProductsUseCase: ProductUseCaseProtocol
+    @Dependency private(set) var transactionObserver: TransactionObserverUseCaseProtocol
+    @Dependency private(set) var storeKitCallback: StoreKitCallbackDelegate
+
+    var purchaseIntentTask: Task<Void, Error>? = nil
+    var interceptPromotionalPurchases = false;
+    var interceptedProductIds: [String] = []
+
+    override init() {
+        super.init()
+    }
+
+    deinit {
+        // Remove the class as a transaction observer
+        SKPaymentQueue.default().remove(self)
+        purchaseIntentTask?.cancel()
+    }
+
+    // Helper method to create PurchaseDetails with product information for Attribution SDK
+    private func createPurchaseDetails(from verificationResult: VerificationResult<Transaction>) async -> PurchaseDetails {
+        do {
+            let transaction = try checkVerified(verificationResult)
+            // Fetch the product first
+            if let product = await StoreKitManager.instance.getProduct(for: transaction.productID) {
+                return await PurchaseDetails(verificationResult: verificationResult, nativeProduct: product)
+            } else {
+                // Fallback without product
+                printLog("Warning: Product not available for: \(transaction.productID)")
+                return verificationResult.purchaseDetails()
+            }
+        } catch {
+            // Handle the error gracefully
+            printLog("Error verifying transaction: \(error)")
+            return verificationResult.purchaseDetails()
+        }
+    }
+
+    // Verify the VerificationResult. StoreKit does the transaction verification for us.
+    public func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
+        // Check whether the JWS passes StoreKit verification.
+        switch result {
+        case .unverified:
+            // StoreKit parses the JWS, but it fails verification.
+            throw PurchaseVerificationError.failedVerification
+        case .verified(let safe):
+            // The result is verified. Return the unwrapped value.
+            return safe
+        }
+    }
+
+    public func purchaseProduct(productId: String, options: [String: AnyObject], storefrontChangeCallback: StorefrontCallbackDelegateType?) async -> PurchaseDetails? {
+        do {
+            // Use the product cached at fetch time; only hit the store on a cache miss
+            // (e.g. purchase intents for products that were never fetched).
+            let product: Product
+            if let cached = StoreKitManager.instance.cachedProduct(for: productId) {
+                product = cached
+            } else if let fetched = try await fetchProductsUseCase.fetchProduct(for: productId) {
+                product = fetched
+            } else {
+                await purchaseProductExceptionCallbacks(productID: productId, error: "Failed to find the product", reason: PurchaseFailureReason.ProductUnavailable.rawValue)
+                return nil
+            }
+
+            return try await purchaseProduct(product: product, options: options, storefrontChangeCallback: storefrontChangeCallback)
+        } catch let error as Product.PurchaseError{
+            let reason: PurchaseFailureReason
+            switch error {
+            case .productUnavailable:
+                reason = .ProductUnavailable
+            case .purchaseNotAllowed:
+                reason = .PurchasingUnavailable
+            default:
+                reason = .Unknown
+            }
+            await purchaseProductExceptionCallbacks(productID: productId, error: error.localizedDescription, reason: reason.rawValue)
+        } catch let error as StoreKitError {
+            let reason: PurchaseFailureReason
+            switch error {
+            case .userCancelled:
+                reason = .UserCancelled
+            default:
+                reason = .Unknown
+            }
+            await purchaseProductExceptionCallbacks(productID: productId, error: error.localizedDescription, reason: reason.rawValue)
+        } catch {
+            await purchaseProductExceptionCallbacks(productID: productId, error: error.localizedDescription, reason: PurchaseFailureReason.Unknown.rawValue)
+        }
+        return nil
+    }
+
+    private func purchaseProduct(product: Product, options: [String: AnyObject], storefrontChangeCallback: StorefrontCallbackDelegateType?) async throws -> PurchaseDetails? {
+        let purchaseProductOptions = PurchaseProductOptionsConverter.makePurchaseOptions(purchaseOptionsRequestJson: options, storefrontChangeCallback: storefrontChangeCallback)
+        do {
+#if os(visionOS)
+            let scene = await (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
+            let purchaseResult = try await product.purchase(confirmIn: (scene?.windowScene)!, options: Set(purchaseProductOptions))
+            switch purchaseResult {
+            case .success(let verification):
+                 if case .verified(let transaction) = verification {
+                     await PurchasedTransactions.shared.keep(transaction)
+                 }
+                 var purchaseDetails = await createPurchaseDetails(from: verification)
+                 purchaseDetails.requestedProductId = product.id
+                 purchaseDetails.impressionId = Self.impressionId
+                 return purchaseDetails
+            case .userCancelled:
+                await purchaseProductExceptionCallbacks(productID: product.id, error: "UserCancelled", reason: PurchaseFailureReason.UserCancelled.rawValue)
+                return nil
+            case .pending:
+                let jsonString = encodeToJSON(DeferredPurchasePayload(products: [product], promotional: Self.isPromotionalPurchase ? true : nil))
+                await storeKitCallback.callback(subject: "OnPurchaseDeferred", payload: jsonString, entitlementStatus: 0)
+                return nil
+            default:
+                await purchaseProductExceptionCallbacks(productID: product.id, error: "Unknown error", reason: PurchaseFailureReason.Unknown.rawValue)
+                return nil
+            }
+#else
+            // This is a signed & verified transaction. StoreKit handle transaction verification for us.
+            guard let purchaseDetail = try await purchase(product, options: purchaseProductOptions) else {
+                return nil
+            }
+            return purchaseDetail
+#endif
+        }
+        catch {
+            await purchaseProductExceptionCallbacks(productID: product.id, error: error.localizedDescription, reason: PurchaseFailureReason.Unknown.rawValue)
+            return nil
+        }
+    }
+
+    /**
+     Purchase the `Product`. Once the StoreKit returns result of the purchase, the function checks whether the transaction is verified.
+     If it is verified, this function returns the content to the user using transactionObserver and finish a transaction.
+     If it isn't verified, this function rethrows the verification error.
+     */
+#if !os(visionOS)
+    private func purchase(_ product: Product, options: Set<Product.PurchaseOption>) async throws -> PurchaseDetails? {
+        let result = try await product.purchase(options: options)
+        switch result {
+        case .success(let verification):
+            if case .verified(let transaction) = verification {
+                await PurchasedTransactions.shared.keep(transaction)
+            }
+            var purchaseDetails = await createPurchaseDetails(from: verification)
+            purchaseDetails.requestedProductId = product.id
+            purchaseDetails.impressionId = Self.impressionId
+            return purchaseDetails
+        case .userCancelled:
+            await purchaseProductExceptionCallbacks(productID: product.id, error: "User cancelled", reason: PurchaseFailureReason.UserCancelled.rawValue)
+            return nil
+        case .pending:
+            let jsonString = encodeToJSON(DeferredPurchasePayload(products: [product], promotional: Self.isPromotionalPurchase ? true : nil))
+            await storeKitCallback.callback(subject: "OnPurchaseDeferred", payload: jsonString, entitlementStatus: 0)
+            return nil
+        default:
+            await purchaseProductExceptionCallbacks(productID: product.id, error: "Unknown error", reason: PurchaseFailureReason.Unknown.rawValue)
+            return nil
+        }
+    }
+#endif
+
+    private func purchaseProductExceptionCallbacks(productID: String, error: String, reason : Int) async {
+        var purchaseDetail = PurchaseDetails(productId: productID, verificationError: error, reason: reason)
+        purchaseDetail.promotional = Self.isPromotionalPurchase ? true : nil
+        purchaseDetail.impressionId = Self.impressionId
+        let jsonString = encodeToJSON(purchaseDetail)
+        await storeKitCallback.callback(subject: "OnPurchaseFailed", payload: jsonString, entitlementStatus: 0)
+    }
+
+    public func addPurchaseIntentListener() {
+#if os(iOS) || (os(macOS) && compiler(>=5.10))
+        if #available(iOS 16.4, macOS 14.4, *) {
+            purchaseIntentTask = listenPurchaseIntent()
+        } else {
+            SKPaymentQueue.default().add(self)
+        }
+#endif
+    }
+
+#if os(iOS) || (os(macOS) && compiler(>=5.10))
+    @available(iOS 16.4, macOS 14.4, *)
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
+    @available(visionOS, unavailable)
+    private func listenPurchaseIntent() -> Task<Void, Error> {
+            return Task.detached {
+                let options:[String: AnyObject] = [:]
+                for await purchaseIntent in PurchaseIntent.intents {
+                    if (self.interceptPromotionalPurchases)
+                    {
+                        Task.detached(priority: .userInitiated, operation: {
+                            await self.storeKitCallback.callback(subject: "OnPromotionalPurchaseAttempted", payload: purchaseIntent.id, entitlementStatus: 0)
+                        })
+
+                        self.interceptedProductIds.append(purchaseIntent.id)
+                    } else {
+                        // Use the public method with productId string instead of private method with Product
+                        _ = await PurchaseUseCase.$isPromotionalPurchase.withValue(true) {
+                            await self.purchaseProduct(productId: purchaseIntent.id, options: options, storefrontChangeCallback: nil)
+                        }
+                    }
+                }
+            }
+        }
+#endif
+
+    public func activateInterceptPromotionalPurchases() {
+        interceptPromotionalPurchases = true;
+    }
+
+    public func continuePromotionalPurchases() async {
+        let options: [String: AnyObject] = [:]
+        for productId in interceptedProductIds {
+            _ = await PurchaseUseCase.$isPromotionalPurchase.withValue(true) {
+                await self.purchaseProduct(productId: productId, options: options, storefrontChangeCallback: nil)
+            }
+        }
+
+        interceptedProductIds.removeAll()
+    }
+}
+
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, visionOS 1.0, *)
+struct DeferredPurchasePayload: Encodable {
+    let products: [Product]
+    let promotional: Bool?
+}
+
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, visionOS 1.0, *)
+extension PurchaseUseCase: SKPaymentTransactionObserver {
+    public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+
+    }
+
+    public func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
+        if (interceptPromotionalPurchases)
+        {
+            Task.detached(priority: .userInitiated, operation: {
+                await self.storeKitCallback.callback(subject: "OnPromotionalPurchaseAttempted", payload: product.productIdentifier, entitlementStatus: 0)
+            })
+            interceptedProductIds.append(product.productIdentifier)
+        }
+
+        return !interceptPromotionalPurchases
+    }
+}
+
