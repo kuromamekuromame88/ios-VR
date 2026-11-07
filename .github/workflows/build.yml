@@ -45,7 +45,7 @@ jobs:
           brew install tree
           tree
           cp -R \
-            build/Unity-iPhone.xcarchive/Products/Applications/VRGameTest.app \
+            build/Unity-iPhone.xcarchive/Products/Applications/MyVRGame.app \
             build/ipa/Payload/
 
           cd build/ipa
