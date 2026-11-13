@@ -40,7 +40,6 @@
 		204AE389BB46DEDF8ED9194A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F88021824C7597D5382883B /* CFNetwork.framework */; };
 		2373E9E02BAA678F79EC8814 /* IUnityEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = FEA0BE273F1825F1BE7B7B69 /* IUnityEventQueue.h */; };
 		2481DD04D9E8F062AFE37702 /* PromotionInfoExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E4868F22CDB4A94DA5149 /* PromotionInfoExtensions.swift */; };
-		24CD4BBB88236995DB6208CB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801E7F3CBAB00070AC52BC6 /* StoreKit.framework */; };
 		29A86990FC29003240A99753 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D74D2B30111D2B20C5127FF /* SafariServices.framework */; };
 		2C0F25EF94A9B1555F35239C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F06E837EECF2C94AEABF609 /* CoreVideo.framework */; };
 		2C36D4A9BF5C78DCD8508A3E /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ECD111EC902A3E32FC4456 /* ProductDetails.swift */; };
@@ -139,6 +138,7 @@
 		9E277B346B541C2D072C5489 /* IUnityGraphicsMetal.h in Headers */ = {isa = PBXBuildFile; fileRef = 894C1B251937BE1BC2B4D36C /* IUnityGraphicsMetal.h */; };
 		9F663AA99BF011B867E22F34 /* UnityViewControllerListener.h in Headers */ = {isa = PBXBuildFile; fileRef = DEE771C3E5C50BFE1CC0E1B7 /* UnityViewControllerListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0289E65B28D0F1FCE1AAE9C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C87A34237BDAAD4758D5B4 /* AVFoundation.framework */; };
+		A1F84DA3B6D5FBD71727BF1E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801E7F3CBAB00070AC52BC6 /* StoreKit.framework */; };
 		A207889197A446B92EBEE772 /* UnityPurchasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5211DE4BADE84A27EFC97A /* UnityPurchasing.m */; };
 		A2DA744A04AAF5E04726BB28 /* UnityAppController+UnityInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 107ED7BB920065C4558EECC2 /* UnityAppController+UnityInterface.h */; };
 		A3DA3A11C7EA8DF9504ADC10 /* PurchaseFailureReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F73B02DF1CE7B38A7DFA35 /* PurchaseFailureReason.swift */; };
@@ -1060,7 +1060,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24CD4BBB88236995DB6208CB /* StoreKit.framework in Frameworks */,
+				A1F84DA3B6D5FBD71727BF1E /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
