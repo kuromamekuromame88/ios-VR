@@ -40,6 +40,7 @@
 		204AE389BB46DEDF8ED9194A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F88021824C7597D5382883B /* CFNetwork.framework */; };
 		2373E9E02BAA678F79EC8814 /* IUnityEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = FEA0BE273F1825F1BE7B7B69 /* IUnityEventQueue.h */; };
 		2481DD04D9E8F062AFE37702 /* PromotionInfoExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E4868F22CDB4A94DA5149 /* PromotionInfoExtensions.swift */; };
+		24CD4BBB88236995DB6208CB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801E7F3CBAB00070AC52BC6 /* StoreKit.framework */; };
 		29A86990FC29003240A99753 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D74D2B30111D2B20C5127FF /* SafariServices.framework */; };
 		2C0F25EF94A9B1555F35239C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F06E837EECF2C94AEABF609 /* CoreVideo.framework */; };
 		2C36D4A9BF5C78DCD8508A3E /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ECD111EC902A3E32FC4456 /* ProductDetails.swift */; };
@@ -182,7 +183,6 @@
 		DB947739ECFB8391233D9D66 /* KeyboardViews+iOS+Glass.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1C1E251267F9E469070DDC9 /* KeyboardViews+iOS+Glass.mm */; };
 		E1553120720B6BD941D137C1 /* UnityView+iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = F2C7D0D55589551423C252C7 /* UnityView+iOS.h */; };
 		E16448E3D816EB05FB4703B1 /* UnityViewControllerBase+iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CA2D324D9CC969EAD21B65 /* UnityViewControllerBase+iOS.h */; };
-		E24F40A587BCF6CDD37053C6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801E7F3CBAB00070AC52BC6 /* StoreKit.framework */; };
 		E29298863AA8FBDD3A9886BB /* CVTextureCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 588503C58FDD1F1B5533177A /* CVTextureCache.h */; };
 		E323D4E09882F87C8650F910 /* RenderPluginDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 41DC848127AFE95D6FAAA0F5 /* RenderPluginDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5C4D22943771931C2485BD4 /* UnityFirebaseAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3266FDBEE415164C93CA57 /* UnityFirebaseAnalytics.m */; };
@@ -1060,7 +1060,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E24F40A587BCF6CDD37053C6 /* StoreKit.framework in Frameworks */,
+				24CD4BBB88236995DB6208CB /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

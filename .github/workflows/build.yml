@@ -1,7 +1,9 @@
+
 name: IOS向けのIPA生成
+
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   workflow_dispatch:
 
 jobs:
@@ -20,40 +22,83 @@ jobs:
           tar -xJf VRtest/Frameworks/UnityRuntime.framework/UnityRuntime.tar.xz \
             -C VRtest/Frameworks/UnityRuntime.framework
 
+      - name: Xcodeプロジェクトの自動検出
+        id: project
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # リポジトリ内の.xcodeprojを検索
+          PROJECT=$(find . -type d -name "*.xcodeproj" -print -quit)
+
+          if [ -z "$PROJECT" ]; then
+            echo "Error: .xcodeprojが見つかりません"
+            exit 1
+          fi
+
+          PROJECT_NAME=$(basename "$PROJECT" .xcodeproj)
+
+          # Schemeを自動取得
+          SCHEME=$(xcodebuild -list -json -project "$PROJECT" \
+            | python3 -c '
+          import json, sys
+          data = json.load(sys.stdin)
+          schemes = data["project"]["schemes"]
+          if not schemes:
+              raise SystemExit("Error: Schemeが見つかりません")
+          print(schemes[0])
+          ')
+
+          echo "project=$PROJECT" >> "$GITHUB_OUTPUT"
+          echo "project_name=$PROJECT_NAME" >> "$GITHUB_OUTPUT"
+          echo "scheme=$SCHEME" >> "$GITHUB_OUTPUT"
+
+          echo "Project: $PROJECT"
+          echo "Scheme: $SCHEME"
+
       - name: 初期化
         run: |
           xcodebuild clean \
-            -project VRtest/Unity-iPhone.xcodeproj \
-            -scheme Unity-iPhone \
+            -project "${{ steps.project.outputs.project }}" \
+            -scheme "${{ steps.project.outputs.scheme }}" \
             -configuration Release
 
       - name: アーカイブ（署名なし）
         run: |
           xcodebuild archive \
-            -project VRtest/Unity-iPhone.xcodeproj \
-            -scheme Unity-iPhone \
+            -project "${{ steps.project.outputs.project }}" \
+            -scheme "${{ steps.project.outputs.scheme }}" \
             -configuration Release \
             -sdk iphoneos \
-            -archivePath build/Unity-iPhone.xcarchive \
+            -archivePath build/App.xcarchive \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY=""
 
       - name: 署名なしIPAの作成
+        shell: bash
         run: |
+          set -euo pipefail
+
+          APP=$(find build/App.xcarchive/Products/Applications \
+            -maxdepth 1 -type d -name "*.app" -print -quit)
+
+          if [ -z "$APP" ]; then
+            echo "Error: .appが見つかりません"
+            exit 1
+          fi
+
           mkdir -p build/ipa/Payload
-          brew install tree
-          tree
-          cp -R \
-            build/Unity-iPhone.xcarchive/Products/Applications/MyVRGame.app \
-            build/ipa/Payload/
+
+          echo "Application: $APP"
+
+          cp -R "$APP" build/ipa/Payload/
 
           cd build/ipa
-          zip -r Unity-iPhone.ipa Payload
+          zip -r "${{ steps.project.outputs.project_name }}.ipa" Payload
 
       - name: 署名なしIPAのartifactへのアップロード
         uses: actions/upload-artifact@v7
         with:
           archive: false
-          path: build/ipa/Unity-iPhone.ipa
-
+          path: build/ipa/*.ipa

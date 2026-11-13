@@ -2387,6 +2387,10 @@ struct ShadowmaskMode_t47E123CD6093F54FA308C6BA3D84326F4CBD4B77
 {
 	int32_t ___value__;
 };
+struct Space_tF043E93E06B702DD05199C28C6F779049B38A969 
+{
+	int32_t ___value__;
+};
 struct SpriteMeshType_t7CB782FB09795AB29328035B4D802242FBADD7FB 
 {
 	int32_t ___value__;
@@ -15487,6 +15491,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ApplicationMemoryUsageChange__ctor_mD1B7
 		return;
 	}
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

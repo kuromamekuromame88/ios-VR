@@ -3158,6 +3158,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Internal_InputUnsafeUtility_GetAxisRaw__Unmanaged();
 		Register_UnityEngine_Internal_InputUnsafeUtility_GetAxisRaw__Unmanaged();
 
+		//System.Single UnityEngine.Internal.InputUnsafeUtility::GetAxis_Injected(UnityEngine.Bindings.ManagedSpanWrapper&)
+		void Register_UnityEngine_Internal_InputUnsafeUtility_GetAxis_Injected();
+		Register_UnityEngine_Internal_InputUnsafeUtility_GetAxis_Injected();
+
 		//System.Single UnityEngine.Internal.InputUnsafeUtility::GetAxis__Unmanaged(System.Byte*,System.Int32)
 		void Register_UnityEngine_Internal_InputUnsafeUtility_GetAxis__Unmanaged();
 		Register_UnityEngine_Internal_InputUnsafeUtility_GetAxis__Unmanaged();

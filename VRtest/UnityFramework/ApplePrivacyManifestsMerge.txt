@@ -11,6 +11,19 @@ Adding elements from Unity
 
 --------------------------------------------------
 
+Adding elements from Library/PackageCache/com.unity.sharp-zip-lib@4a6c950d5817/Runtime/Plugins/com.unity.sharp-zip-lib/iOS/PrivacyInfo.xcprivacy
+	NSPrivacyAccessedAPITypes:
+		0:
+			NSPrivacyAccessedAPIType:
+				NSPrivacyAccessedAPICategoryFileTimestamp
+			NSPrivacyAccessedAPITypeReasons:
+				0:
+					C617.1
+				1:
+					3B52.1
+
+--------------------------------------------------
+
 Adding elements from Library/PackageCache/com.unity.services.core@3464cb68d709/Runtime/PrivacyInfo.xcprivacy
 	NSPrivacyAccessedAPITypes:
 		0:
