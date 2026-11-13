@@ -78,6 +78,8 @@ jobs:
       - name: 署名なしIPAの作成
         shell: bash
         run: |
+          brew install tree
+          tree
           set -euo pipefail
 
           APP=$(find build/App.xcarchive/Products/Applications \
