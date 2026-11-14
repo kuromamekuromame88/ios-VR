@@ -88,6 +88,7 @@
 		6129FE8FD4A621477A28A259 /* StoreKitCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A5F11EFA23A268CBF59EA /* StoreKitCallback.swift */; };
 		63ACF7178776C648B96974EB /* baselib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD8D832DF5E49F3229DE515 /* baselib.a */; };
 		6412DCBAA9529A01D381C747 /* Filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5B58EA838E650B8EF348294 /* Filesystem.mm */; };
+		653544F290DAE992D54C34D2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801E7F3CBAB00070AC52BC6 /* StoreKit.framework */; };
 		67A617E5FFD67C6B9FBA0A15 /* MetalHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49265D736859235BFB6D1FF6 /* MetalHelper.mm */; };
 		697DABA841F79EB818BCFEF4 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1824062D2F5D3B15980ECCA7 /* IOSurface.framework */; };
 		69ED3E404F037B21557B6831 /* VideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 18C5DFDBA7DBE2E98847911A /* VideoPlayer.h */; };
@@ -143,7 +144,6 @@
 		A3DA3A11C7EA8DF9504ADC10 /* PurchaseFailureReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F73B02DF1CE7B38A7DFA35 /* PurchaseFailureReason.swift */; };
 		A5C000FC7C551667F37C1347 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5201A6004A8A0023F5541676 /* CoreText.framework */; };
 		A7DB3A6F75E10B1E35E6ED05 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		A9344F27A6BC7353CC1E42AB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801E7F3CBAB00070AC52BC6 /* StoreKit.framework */; };
 		A9EA7FF91A5FBD41725E42BA /* RenewalStateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B952E910D0136C3DD0BAD /* RenewalStateExtensions.swift */; };
 		ABDDC050A0AE51C5BEEC1AD4 /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AF8AA0F87DF629F3B65CCB8 /* Vector3.h */; };
 		AC59092CA77C69D6ED97B183 /* AppDelegateListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 5201A0F3E84F5492ABC002BC /* AppDelegateListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1060,7 +1060,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9344F27A6BC7353CC1E42AB /* StoreKit.framework in Frameworks */,
+				653544F290DAE992D54C34D2 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
