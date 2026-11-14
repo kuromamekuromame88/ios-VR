@@ -88,7 +88,6 @@
 		6129FE8FD4A621477A28A259 /* StoreKitCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A5F11EFA23A268CBF59EA /* StoreKitCallback.swift */; };
 		63ACF7178776C648B96974EB /* baselib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD8D832DF5E49F3229DE515 /* baselib.a */; };
 		6412DCBAA9529A01D381C747 /* Filesystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5B58EA838E650B8EF348294 /* Filesystem.mm */; };
-		653544F290DAE992D54C34D2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801E7F3CBAB00070AC52BC6 /* StoreKit.framework */; };
 		67A617E5FFD67C6B9FBA0A15 /* MetalHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49265D736859235BFB6D1FF6 /* MetalHelper.mm */; };
 		697DABA841F79EB818BCFEF4 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1824062D2F5D3B15980ECCA7 /* IOSurface.framework */; };
 		69ED3E404F037B21557B6831 /* VideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 18C5DFDBA7DBE2E98847911A /* VideoPlayer.h */; };
@@ -121,6 +120,7 @@
 		8AB9A92456A9116A6C2ED30A /* GfxPluginCardboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A85ED1132C5F237ADA6ECD2 /* GfxPluginCardboard.a */; };
 		8F3F7ABF709C0E5FB7421F58 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C29945C52FEAE23D767DA6 /* ARKit.framework */; };
 		91C1EB5F348833EAD02A7E9A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F2E4BD281D8D2761198E3AA0 /* PrivacyInfo.xcprivacy */; };
+		9307496A96EBBEFF813BCFCF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C801E7F3CBAB00070AC52BC6 /* StoreKit.framework */; };
 		93149E3485BFCFBF16086734 /* IUnityPhysicsBackendSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B83626AA44CF1959ECAF77E /* IUnityPhysicsBackendSystem.h */; };
 		947A4B628B20E5D7DD8E07D8 /* IUnityProfilerCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3AA4CC9BFFEBCECE491D36 /* IUnityProfilerCallbacks.h */; };
 		959F988410F5B9A01E86D316 /* UnityView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05DDA3FCDF632B6069EF328B /* UnityView.h */; };
@@ -1060,7 +1060,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				653544F290DAE992D54C34D2 /* StoreKit.framework in Frameworks */,
+				9307496A96EBBEFF813BCFCF /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
