@@ -333,7 +333,7 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[4] =
 };
 static const Il2CppTokenIndexMethodTuple s_reversePInvokeIndices[1] = 
 {
-	{ 0x06000012, 83,  (void**)&BurstCompilerHelper_IsBurstEnabled_mC2CE69BA880DB5A9980580DF02F209ADC821695C_RuntimeMethod_var, 0 },
+	{ 0x06000012, 90,  (void**)&BurstCompilerHelper_IsBurstEnabled_mC2CE69BA880DB5A9980580DF02F209ADC821695C_RuntimeMethod_var, 0 },
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_BurstModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_BurstModule_CodeGenModule = 

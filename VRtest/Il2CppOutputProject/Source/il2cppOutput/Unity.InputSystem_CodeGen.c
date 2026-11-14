@@ -11684,7 +11684,7 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[208] =
 };
 static const Il2CppTokenIndexMethodTuple s_reversePInvokeIndices[1] = 
 {
-	{ 0x06000C6D, 74,  (void**)&iOSStepCounter_OnDataReceived_m5026961D9D4D64A5930020A91D82DF64E65591C0_RuntimeMethod_var, 0 },
+	{ 0x06000C6D, 81,  (void**)&iOSStepCounter_OnDataReceived_m5026961D9D4D64A5930020A91D82DF64E65591C0_RuntimeMethod_var, 0 },
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_InputSystem_CodeGenModule;
 const Il2CppCodeGenModule g_Unity_InputSystem_CodeGenModule = 

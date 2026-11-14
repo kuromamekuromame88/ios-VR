@@ -3,23 +3,23 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 	void RegisterModule_Scripting();
 	RegisterModule_Scripting();
 
-	void RegisterModule_Core();
-	RegisterModule_Core();
-
-	void RegisterModule_JSONSerialize();
-	RegisterModule_JSONSerialize();
-
 	void RegisterModule_AndroidJNI();
 	RegisterModule_AndroidJNI();
 
 	void RegisterModule_Animation();
 	RegisterModule_Animation();
 
+	void RegisterModule_AssetBundle();
+	RegisterModule_AssetBundle();
+
 	void RegisterModule_Audio();
 	RegisterModule_Audio();
 
 	void RegisterModule_Burst();
 	RegisterModule_Burst();
+
+	void RegisterModule_Core();
+	RegisterModule_Core();
 
 	void RegisterModule_ContentLoad();
 	RegisterModule_ContentLoad();
@@ -36,15 +36,6 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 	void RegisterModule_HotReload();
 	RegisterModule_HotReload();
 
-	void RegisterModule_AssetBundle();
-	RegisterModule_AssetBundle();
-
-	void RegisterModule_ImageConversion();
-	RegisterModule_ImageConversion();
-
-	void RegisterModule_Input();
-	RegisterModule_Input();
-
 	void RegisterModule_InputLegacy();
 	RegisterModule_InputLegacy();
 
@@ -54,8 +45,17 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 	void RegisterModule_Identifiers();
 	RegisterModule_Identifiers();
 
+	void RegisterModule_ImageConversion();
+	RegisterModule_ImageConversion();
+
+	void RegisterModule_Input();
+	RegisterModule_Input();
+
 	void RegisterModule_InputForUI();
 	RegisterModule_InputForUI();
+
+	void RegisterModule_JSONSerialize();
+	RegisterModule_JSONSerialize();
 
 	void RegisterModule_Mathematics();
 	RegisterModule_Mathematics();
@@ -66,14 +66,14 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 	void RegisterModule_Physics();
 	RegisterModule_Physics();
 
-	void RegisterModule_PhysicsBackendPhysX();
-	RegisterModule_PhysicsBackendPhysX();
-
 	void RegisterModule_PhysicsCore2D();
 	RegisterModule_PhysicsCore2D();
 
 	void RegisterModule_Physics2D();
 	RegisterModule_Physics2D();
+
+	void RegisterModule_PhysicsBackendPhysX();
+	RegisterModule_PhysicsBackendPhysX();
 
 	void RegisterModule_Properties();
 	RegisterModule_Properties();
@@ -113,6 +113,12 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 
 	void RegisterModule_UnityAnalyticsCommon();
 	RegisterModule_UnityAnalyticsCommon();
+
+	void RegisterModule_UnityConnect();
+	RegisterModule_UnityConnect();
+
+	void RegisterModule_UnityAnalytics();
+	RegisterModule_UnityAnalytics();
 
 	void RegisterModule_UnityConsent();
 	RegisterModule_UnityConsent();

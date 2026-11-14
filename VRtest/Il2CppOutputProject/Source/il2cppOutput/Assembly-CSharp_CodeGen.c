@@ -90,11 +90,14 @@ extern void PlayerInputHandler_get_JumpWasPressedThisFrame_mE7D5678CAB56FEAF299A
 extern void PlayerInputHandler_set_JumpWasPressedThisFrame_mAF38A3EC4710EC0E0330FBEC21FE018E8E432E4D (void);
 extern void PlayerInputHandler_OnEnable_m317AADD74E3962A604AB0F31BCA8CF1B3B354AEC (void);
 extern void PlayerInputHandler_OnDisable_m894AFA1FB4762C746C705A50E17074978775694F (void);
+extern void PlayerInputHandler_OnDeviceChange_mC02A9DC0BE1A0866E95CBFF58BE5618A10ADFCAD (void);
+extern void PlayerInputHandler_FindController_m3861AD274F74A75ABE3A2DCAEE99DF08E9896B11 (void);
 extern void PlayerInputHandler_Update_mA88A3A93D3F535AE2D3508721B8E5CA6B25D972C (void);
+extern void PlayerInputHandler_ForwardControllerInput_mD436D99DC852F6E654794DBFBB204502123D2DF1 (void);
 extern void PlayerInputHandler__ctor_m150701EB7EA4F766B388EDDED5EE30953A528A5C (void);
 extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
-static Il2CppMethodPointer s_methodPointers[106] = 
+static Il2CppMethodPointer s_methodPointers[109] = 
 {
 	RotateCamera_Start_m4810DEF7E3E6179604900A28D9156240D92C5001,
 	RotateCamera_Update_m1312BAEDB4E83B914E9FF4E902C625B78C596A20,
@@ -198,7 +201,10 @@ static Il2CppMethodPointer s_methodPointers[106] =
 	PlayerInputHandler_set_JumpWasPressedThisFrame_mAF38A3EC4710EC0E0330FBEC21FE018E8E432E4D,
 	PlayerInputHandler_OnEnable_m317AADD74E3962A604AB0F31BCA8CF1B3B354AEC,
 	PlayerInputHandler_OnDisable_m894AFA1FB4762C746C705A50E17074978775694F,
+	PlayerInputHandler_OnDeviceChange_mC02A9DC0BE1A0866E95CBFF58BE5618A10ADFCAD,
+	PlayerInputHandler_FindController_m3861AD274F74A75ABE3A2DCAEE99DF08E9896B11,
 	PlayerInputHandler_Update_mA88A3A93D3F535AE2D3508721B8E5CA6B25D972C,
+	PlayerInputHandler_ForwardControllerInput_mD436D99DC852F6E654794DBFBB204502123D2DF1,
 	PlayerInputHandler__ctor_m150701EB7EA4F766B388EDDED5EE30953A528A5C,
 	Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6,
 	Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B,
@@ -207,7 +213,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	106,
+	109,
 	s_methodPointers,
 	0,
 	NULL,

@@ -572,6 +572,22 @@ void RegisterAllStrippedInternalCalls()
 
 	//End Registrations for type : Unity.U2D.Physics.Scripting2D
 
+	//Start Registrations for type : UnityEngine.Analytics.Analytics
+
+		//System.Boolean UnityEngine.Analytics.Analytics::IsInitialized()
+		void Register_UnityEngine_Analytics_Analytics_IsInitialized();
+		Register_UnityEngine_Analytics_Analytics_IsInitialized();
+
+		//UnityEngine.Analytics.AnalyticsResult UnityEngine.Analytics.Analytics::RegisterEventWithLimit_Injected(UnityEngine.Bindings.ManagedSpanWrapper&,System.Int32,System.Int32,UnityEngine.Bindings.ManagedSpanWrapper&,System.Int32,UnityEngine.Bindings.ManagedSpanWrapper&,UnityEngine.Bindings.ManagedSpanWrapper&,System.Boolean)
+		void Register_UnityEngine_Analytics_Analytics_RegisterEventWithLimit_Injected();
+		Register_UnityEngine_Analytics_Analytics_RegisterEventWithLimit_Injected();
+
+		//UnityEngine.Analytics.AnalyticsResult UnityEngine.Analytics.Analytics::SendEventWithLimit_Injected(UnityEngine.Bindings.ManagedSpanWrapper&,System.Object,System.Int32,UnityEngine.Bindings.ManagedSpanWrapper&)
+		void Register_UnityEngine_Analytics_Analytics_SendEventWithLimit_Injected();
+		Register_UnityEngine_Analytics_Analytics_SendEventWithLimit_Injected();
+
+	//End Registrations for type : UnityEngine.Analytics.Analytics
+
 	//Start Registrations for type : UnityEngine.Android.AndroidApplication
 
 		//System.IntPtr UnityEngine.Android.AndroidApplication::get_UnityPlayerRaw()
@@ -1046,6 +1062,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Application_get_cloudProjectId_Injected();
 		Register_UnityEngine_Application_get_cloudProjectId_Injected();
 
+		//System.Void UnityEngine.Application::get_dataPath_Injected(UnityEngine.Bindings.ManagedSpanWrapper&)
+		void Register_UnityEngine_Application_get_dataPath_Injected();
+		Register_UnityEngine_Application_get_dataPath_Injected();
+
 		//System.Void UnityEngine.Application::get_identifier_Injected(UnityEngine.Bindings.ManagedSpanWrapper&)
 		void Register_UnityEngine_Application_get_identifier_Injected();
 		Register_UnityEngine_Application_get_identifier_Injected();
@@ -1053,6 +1073,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.Application::get_persistentDataPath_Injected(UnityEngine.Bindings.ManagedSpanWrapper&)
 		void Register_UnityEngine_Application_get_persistentDataPath_Injected();
 		Register_UnityEngine_Application_get_persistentDataPath_Injected();
+
+		//System.Void UnityEngine.Application::get_productName_Injected(UnityEngine.Bindings.ManagedSpanWrapper&)
+		void Register_UnityEngine_Application_get_productName_Injected();
+		Register_UnityEngine_Application_get_productName_Injected();
 
 		//System.Void UnityEngine.Application::get_streamingAssetsPath_Injected(UnityEngine.Bindings.ManagedSpanWrapper&)
 		void Register_UnityEngine_Application_get_streamingAssetsPath_Injected();
@@ -2269,6 +2293,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Int32 UnityEngine.GameObject::get_layer_Injected(System.IntPtr)
 		void Register_UnityEngine_GameObject_get_layer_Injected();
 		Register_UnityEngine_GameObject_get_layer_Injected();
+
+		//System.IntPtr UnityEngine.GameObject::Find_Injected(UnityEngine.Bindings.ManagedSpanWrapper&)
+		void Register_UnityEngine_GameObject_Find_Injected();
+		Register_UnityEngine_GameObject_Find_Injected();
 
 		//System.IntPtr UnityEngine.GameObject::GetComponentInChildren_Injected(System.IntPtr,System.Type,System.Boolean)
 		void Register_UnityEngine_GameObject_GetComponentInChildren_Injected();
@@ -5526,6 +5554,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Rendering_GraphicsSettings_get_INTERNAL_currentRenderPipeline_Injected();
 		Register_UnityEngine_Rendering_GraphicsSettings_get_INTERNAL_currentRenderPipeline_Injected();
 
+		//System.IntPtr UnityEngine.Rendering.GraphicsSettings::get_INTERNAL_defaultRenderPipeline_Injected()
+		void Register_UnityEngine_Rendering_GraphicsSettings_get_INTERNAL_defaultRenderPipeline_Injected();
+		Register_UnityEngine_Rendering_GraphicsSettings_get_INTERNAL_defaultRenderPipeline_Injected();
+
 		//System.Void UnityEngine.Rendering.GraphicsSettings::set_lightsUseColorTemperature(System.Boolean)
 		void Register_UnityEngine_Rendering_GraphicsSettings_set_lightsUseColorTemperature();
 		Register_UnityEngine_Rendering_GraphicsSettings_set_lightsUseColorTemperature();
@@ -8459,6 +8491,22 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_VFX_VisualEffect_get_visualEffectAsset_Injected();
 
 	//End Registrations for type : UnityEngine.VFX.VisualEffect
+
+	//Start Registrations for type : UnityEngine.XR.InputDevices
+
+		//System.Boolean UnityEngine.XR.InputDevices::IsDeviceValid(System.UInt64)
+		void Register_UnityEngine_XR_InputDevices_IsDeviceValid();
+		Register_UnityEngine_XR_InputDevices_IsDeviceValid();
+
+		//System.Void UnityEngine.XR.InputDevices::GetDeviceName_Injected(System.UInt64,UnityEngine.Bindings.ManagedSpanWrapper&)
+		void Register_UnityEngine_XR_InputDevices_GetDeviceName_Injected();
+		Register_UnityEngine_XR_InputDevices_GetDeviceName_Injected();
+
+		//UnityEngine.XR.InputDeviceCharacteristics UnityEngine.XR.InputDevices::GetDeviceCharacteristics(System.UInt64)
+		void Register_UnityEngine_XR_InputDevices_GetDeviceCharacteristics();
+		Register_UnityEngine_XR_InputDevices_GetDeviceCharacteristics();
+
+	//End Registrations for type : UnityEngine.XR.InputDevices
 
 	//Start Registrations for type : UnityEngine.XR.InputTracking
 

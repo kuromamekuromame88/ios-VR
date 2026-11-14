@@ -5837,18 +5837,18 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[302] =
 };
 static const Il2CppTokenIndexMethodTuple s_reversePInvokeIndices[12] = 
 {
-	{ 0x060000AD, 81,  (void**)&StackAllocator_Try_m093FA501B1B427E32DD9F654380B3EA56A5A4234_RuntimeMethod_var, 0 },
-	{ 0x060000B0, 82,  (void**)&StackAllocator_TryU24BurstManaged_mB88D607AA12E4D9181BF1FFE81A1AC3117FDB5E2_RuntimeMethod_var, 0 },
-	{ 0x060000C4, 79,  (void**)&SlabAllocator_Try_mCD7DED588811A6E3F78E4A14CBFE2852D8E39DEB_RuntimeMethod_var, 0 },
-	{ 0x060000C7, 80,  (void**)&SlabAllocator_TryU24BurstManaged_mC48F05E806431B6537727E4D6A10550207FBB1EA_RuntimeMethod_var, 0 },
+	{ 0x060000AD, 88,  (void**)&StackAllocator_Try_m093FA501B1B427E32DD9F654380B3EA56A5A4234_RuntimeMethod_var, 0 },
+	{ 0x060000B0, 89,  (void**)&StackAllocator_TryU24BurstManaged_mB88D607AA12E4D9181BF1FFE81A1AC3117FDB5E2_RuntimeMethod_var, 0 },
+	{ 0x060000C4, 86,  (void**)&SlabAllocator_Try_mCD7DED588811A6E3F78E4A14CBFE2852D8E39DEB_RuntimeMethod_var, 0 },
+	{ 0x060000C7, 87,  (void**)&SlabAllocator_TryU24BurstManaged_mC48F05E806431B6537727E4D6A10550207FBB1EA_RuntimeMethod_var, 0 },
 	{ 0x060000FB, 8,  (void**)&AutoFreeAllocator_Try_m4FFF073754714947DFC8F4D7134E74CDC78C019C_RuntimeMethod_var, 0 },
 	{ 0x06000101, 9,  (void**)&AutoFreeAllocator_TryU24BurstManaged_mE86E6DC99C88B259454710D7CC1906F995968ECF_RuntimeMethod_var, 0 },
-	{ 0x06000A79, 60,  (void**)&RewindableAllocator_Try_mA4AF5A5088097CB6343C3CC97058959976372C35_RuntimeMethod_var, 0 },
-	{ 0x06000A81, 61,  (void**)&RewindableAllocator_TryU24BurstManaged_mBB6DAE6A8CDB2E3626C38F3B65186AAF6ACBF6E8_RuntimeMethod_var, 0 },
-	{ 0x06000B0E, 77,  (void**)&xxHash3_Hash64Long_m9950702E864DCCD9B8DEAAE23E7CBB5E79D4AC62_RuntimeMethod_var, 0 },
-	{ 0x06000B15, 75,  (void**)&xxHash3_Hash128Long_m2D142F72BFFB0190088826C57841208A3BE25876_RuntimeMethod_var, 0 },
-	{ 0x06000B2E, 78,  (void**)&xxHash3_Hash64LongU24BurstManaged_m71E36BBD116CCA46ED23162F80B08D3B2F782B4D_RuntimeMethod_var, 0 },
-	{ 0x06000B2F, 76,  (void**)&xxHash3_Hash128LongU24BurstManaged_mC058740872D766ED00F1168A0EECEC0E90559E46_RuntimeMethod_var, 0 },
+	{ 0x06000A79, 66,  (void**)&RewindableAllocator_Try_mA4AF5A5088097CB6343C3CC97058959976372C35_RuntimeMethod_var, 0 },
+	{ 0x06000A81, 67,  (void**)&RewindableAllocator_TryU24BurstManaged_mBB6DAE6A8CDB2E3626C38F3B65186AAF6ACBF6E8_RuntimeMethod_var, 0 },
+	{ 0x06000B0E, 84,  (void**)&xxHash3_Hash64Long_m9950702E864DCCD9B8DEAAE23E7CBB5E79D4AC62_RuntimeMethod_var, 0 },
+	{ 0x06000B15, 82,  (void**)&xxHash3_Hash128Long_m2D142F72BFFB0190088826C57841208A3BE25876_RuntimeMethod_var, 0 },
+	{ 0x06000B2E, 85,  (void**)&xxHash3_Hash64LongU24BurstManaged_m71E36BBD116CCA46ED23162F80B08D3B2F782B4D_RuntimeMethod_var, 0 },
+	{ 0x06000B2F, 83,  (void**)&xxHash3_Hash128LongU24BurstManaged_mC058740872D766ED00F1168A0EECEC0E90559E46_RuntimeMethod_var, 0 },
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_Collections_CodeGenModule;
 const Il2CppCodeGenModule g_Unity_Collections_CodeGenModule = 

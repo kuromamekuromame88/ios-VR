@@ -3454,9 +3454,9 @@ static const Il2CppTokenIndexMethodTuple s_reversePInvokeIndices[5] =
 {
 	{ 0x060001B3, 6,  (void**)&AppleStoreImpl_MessageCallback_mCFEEF3D94AE82B4C92430B1BC2DB7957FACA7375_RuntimeMethod_var, 0 },
 	{ 0x060001D1, 7,  (void**)&AppleStoreImpl_Sk1MessageCallback_m32512EC7EACD1989B2038BC1FF1EB9B48290A14B_RuntimeMethod_var, 0 },
-	{ 0x0600021A, 15,  (void**)&ExternalPurchaseClient_NativeCallback_m7749F3D4EFB669E0196BC5EC52873195F0CE44A8_RuntimeMethod_var, 0 },
-	{ 0x06000417, 57,  (void**)&PaymentProviderImpl_OnNativeSceneBecameFrontmost_m34D54FE8A55F9278C2AFCFF31F485FA2E7EF9523_RuntimeMethod_var, 0 },
-	{ 0x060004C5, 31,  (void**)&IosInAppBrowserLauncher_OnNativeCallback_m2301BA5BB6BF895AF19EA2FF1955529690B57A8F_RuntimeMethod_var, 0 },
+	{ 0x0600021A, 16,  (void**)&ExternalPurchaseClient_NativeCallback_m7749F3D4EFB669E0196BC5EC52873195F0CE44A8_RuntimeMethod_var, 0 },
+	{ 0x06000417, 62,  (void**)&PaymentProviderImpl_OnNativeSceneBecameFrontmost_m34D54FE8A55F9278C2AFCFF31F485FA2E7EF9523_RuntimeMethod_var, 0 },
+	{ 0x060004C5, 32,  (void**)&IosInAppBrowserLauncher_OnNativeCallback_m2301BA5BB6BF895AF19EA2FF1955529690B57A8F_RuntimeMethod_var, 0 },
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_Purchasing_Stores_CodeGenModule;
 const Il2CppCodeGenModule g_Unity_Purchasing_Stores_CodeGenModule = 

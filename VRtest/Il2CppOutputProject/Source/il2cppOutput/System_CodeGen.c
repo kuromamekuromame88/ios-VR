@@ -10138,21 +10138,21 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[105] =
 };
 static const Il2CppTokenIndexMethodTuple s_reversePInvokeIndices[15] = 
 {
-	{ 0x06000086, 65,  (void**)&UnityTlsContext_WriteCallback_m74F83CFEE7D8FB7EBD1A1021DCB8945E89382998_RuntimeMethod_var, 0 },
-	{ 0x06000088, 63,  (void**)&UnityTlsContext_ReadCallback_m068A7DC153B3D2C4F6922B46BC5957CF33AE3450_RuntimeMethod_var, 0 },
-	{ 0x0600008A, 64,  (void**)&UnityTlsContext_VerifyCallback_mC7AE01FAD8A336A6BF11CF8A3EFAC60CF6167E6F_RuntimeMethod_var, 0 },
-	{ 0x0600008C, 62,  (void**)&UnityTlsContext_CertificateCallback_m8CC672A44A8CCFD2A3EB2D9B38A9A134F6EF706B_RuntimeMethod_var, 0 },
-	{ 0x0600009C, 66,  (void**)&UnityTlsProvider_x509verify_callback_mB2465D108005179B9873A37C418CD26A37194E3B_RuntimeMethod_var, 0 },
-	{ 0x06000194, 49,  (void**)&MonoBtlsBioMono_OnRead_m8888AD0EA2D55D9FFE183BC63D4023BC621941F9_RuntimeMethod_var, 0 },
-	{ 0x06000196, 50,  (void**)&MonoBtlsBioMono_OnWrite_mD90183BD125599306AAF4E74E941A3983027C575_RuntimeMethod_var, 0 },
-	{ 0x06000197, 48,  (void**)&MonoBtlsBioMono_Control_mA7B1C493171314C6F02CAC5F73EB7CB94B86ED78_RuntimeMethod_var, 0 },
-	{ 0x06000238, 51,  (void**)&MonoBtlsSsl_PrintErrorsCallback_m93ED1F9335C5974459F0915323C5527382A83959_RuntimeMethod_var, 0 },
-	{ 0x0600025B, 54,  (void**)&MonoBtlsSslCtx_NativeVerifyCallback_m13C23EDCF9CDADF430C5A1664D33DC7621974916_RuntimeMethod_var, 0 },
-	{ 0x0600025C, 52,  (void**)&MonoBtlsSslCtx_NativeSelectCallback_m5A906B70CBEC53FE7F4208810264D78D4AA26EE4_RuntimeMethod_var, 0 },
-	{ 0x06000266, 53,  (void**)&MonoBtlsSslCtx_NativeServerNameCallback_mC76D35B6D2668F93E280D35B5560A06571810857_RuntimeMethod_var, 0 },
-	{ 0x060002AF, 55,  (void**)&MonoBtlsX509LookupMono_OnGetBySubject_m85B0F4B20C12F67DE4CD9521EC58308C9A27BA24_RuntimeMethod_var, 0 },
-	{ 0x06000D4F, 13,  (void**)&DeflateStreamNative_UnmanagedRead_m321A2621068F1C9509594A4D8F405F4F12C1CEB3_RuntimeMethod_var, 0 },
-	{ 0x06000D51, 14,  (void**)&DeflateStreamNative_UnmanagedWrite_mB0AD438266A9DD2813715E8BC90BF07DC7A02F52_RuntimeMethod_var, 0 },
+	{ 0x06000086, 71,  (void**)&UnityTlsContext_WriteCallback_m74F83CFEE7D8FB7EBD1A1021DCB8945E89382998_RuntimeMethod_var, 0 },
+	{ 0x06000088, 69,  (void**)&UnityTlsContext_ReadCallback_m068A7DC153B3D2C4F6922B46BC5957CF33AE3450_RuntimeMethod_var, 0 },
+	{ 0x0600008A, 70,  (void**)&UnityTlsContext_VerifyCallback_mC7AE01FAD8A336A6BF11CF8A3EFAC60CF6167E6F_RuntimeMethod_var, 0 },
+	{ 0x0600008C, 68,  (void**)&UnityTlsContext_CertificateCallback_m8CC672A44A8CCFD2A3EB2D9B38A9A134F6EF706B_RuntimeMethod_var, 0 },
+	{ 0x0600009C, 72,  (void**)&UnityTlsProvider_x509verify_callback_mB2465D108005179B9873A37C418CD26A37194E3B_RuntimeMethod_var, 0 },
+	{ 0x06000194, 53,  (void**)&MonoBtlsBioMono_OnRead_m8888AD0EA2D55D9FFE183BC63D4023BC621941F9_RuntimeMethod_var, 0 },
+	{ 0x06000196, 54,  (void**)&MonoBtlsBioMono_OnWrite_mD90183BD125599306AAF4E74E941A3983027C575_RuntimeMethod_var, 0 },
+	{ 0x06000197, 52,  (void**)&MonoBtlsBioMono_Control_mA7B1C493171314C6F02CAC5F73EB7CB94B86ED78_RuntimeMethod_var, 0 },
+	{ 0x06000238, 55,  (void**)&MonoBtlsSsl_PrintErrorsCallback_m93ED1F9335C5974459F0915323C5527382A83959_RuntimeMethod_var, 0 },
+	{ 0x0600025B, 58,  (void**)&MonoBtlsSslCtx_NativeVerifyCallback_m13C23EDCF9CDADF430C5A1664D33DC7621974916_RuntimeMethod_var, 0 },
+	{ 0x0600025C, 56,  (void**)&MonoBtlsSslCtx_NativeSelectCallback_m5A906B70CBEC53FE7F4208810264D78D4AA26EE4_RuntimeMethod_var, 0 },
+	{ 0x06000266, 57,  (void**)&MonoBtlsSslCtx_NativeServerNameCallback_mC76D35B6D2668F93E280D35B5560A06571810857_RuntimeMethod_var, 0 },
+	{ 0x060002AF, 59,  (void**)&MonoBtlsX509LookupMono_OnGetBySubject_m85B0F4B20C12F67DE4CD9521EC58308C9A27BA24_RuntimeMethod_var, 0 },
+	{ 0x06000D4F, 14,  (void**)&DeflateStreamNative_UnmanagedRead_m321A2621068F1C9509594A4D8F405F4F12C1CEB3_RuntimeMethod_var, 0 },
+	{ 0x06000D51, 15,  (void**)&DeflateStreamNative_UnmanagedWrite_mB0AD438266A9DD2813715E8BC90BF07DC7A02F52_RuntimeMethod_var, 0 },
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_System_CodeGenModule;
 const Il2CppCodeGenModule g_System_CodeGenModule = 

@@ -2729,7 +2729,7 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[152] =
 };
 static const Il2CppTokenIndexMethodTuple s_reversePInvokeIndices[6] = 
 {
-	{ 0x060002D4, 16,  (void**)&HighResolutionCpuImagePromise_OnPromiseComplete_m444E8F248DC80401DF6C4D497B2BA2CCF47B7C55_RuntimeMethod_var, 0 },
+	{ 0x060002D4, 17,  (void**)&HighResolutionCpuImagePromise_OnPromiseComplete_m444E8F248DC80401DF6C4D497B2BA2CCF47B7C55_RuntimeMethod_var, 0 },
 	{ 0x0600045F, 3,  (void**)&ARKitSessionDelegate_SessionDidFailWithError_mC4CFE813C1C8FCF592EE9B661DB1E51C8DD12399_RuntimeMethod_var, 0 },
 	{ 0x06000460, 1,  (void**)&ARKitSessionDelegate_CoachingOverlayViewWillActivate_m3F9ECC227F1E397CE7C57A505FB3FFB8ADBE573B_RuntimeMethod_var, 0 },
 	{ 0x06000461, 0,  (void**)&ARKitSessionDelegate_CoachingOverlayViewDidDeactivate_m65EDACCF49DE4C8A6E4CA7F6E3A7104D116432EE_RuntimeMethod_var, 0 },

@@ -28,6 +28,8 @@
     <string>0</string>
     <key>LSRequiresIPhoneOS</key>
     <true />
+    <key>NSCameraUsageDescription</key>
+    <string>Augmented Reality requires the camera</string>
     <key>UIApplicationSceneManifest</key>
     <dict>
       <key>UIApplicationSupportsMultipleScenes</key>
