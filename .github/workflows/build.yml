@@ -54,6 +54,6 @@ jobs:
       - name: 署名なしIPAのartifactへのアップロード
         uses: actions/upload-artifact@v7
         with:
-          archive: false
+          archive: true
           path: build/ipa/Unity-iPhone.ipa
 
