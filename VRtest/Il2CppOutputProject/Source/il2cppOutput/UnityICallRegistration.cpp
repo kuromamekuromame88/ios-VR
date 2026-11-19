@@ -2342,10 +2342,6 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_GameObject_get_scene_Injected();
 		Register_UnityEngine_GameObject_get_scene_Injected();
 
-		//System.Void UnityEngine.GameObject::get_tag_Injected(System.IntPtr,UnityEngine.Bindings.ManagedSpanWrapper&)
-		void Register_UnityEngine_GameObject_get_tag_Injected();
-		Register_UnityEngine_GameObject_get_tag_Injected();
-
 		//System.Void UnityEngine.GameObject::set_layer_Injected(System.IntPtr,System.Int32)
 		void Register_UnityEngine_GameObject_set_layer_Injected();
 		Register_UnityEngine_GameObject_set_layer_Injected();
@@ -6093,6 +6089,18 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.Rigidbody::AddForce_Injected(System.IntPtr,UnityEngine.Vector3&,UnityEngine.ForceMode)
 		void Register_UnityEngine_Rigidbody_AddForce_Injected();
 		Register_UnityEngine_Rigidbody_AddForce_Injected();
+
+		//System.Void UnityEngine.Rigidbody::set_angularVelocity_Injected(System.IntPtr,UnityEngine.Vector3&)
+		void Register_UnityEngine_Rigidbody_set_angularVelocity_Injected();
+		Register_UnityEngine_Rigidbody_set_angularVelocity_Injected();
+
+		//System.Void UnityEngine.Rigidbody::set_linearVelocity_Injected(System.IntPtr,UnityEngine.Vector3&)
+		void Register_UnityEngine_Rigidbody_set_linearVelocity_Injected();
+		Register_UnityEngine_Rigidbody_set_linearVelocity_Injected();
+
+		//System.Void UnityEngine.Rigidbody::set_position_Injected(System.IntPtr,UnityEngine.Vector3&)
+		void Register_UnityEngine_Rigidbody_set_position_Injected();
+		Register_UnityEngine_Rigidbody_set_position_Injected();
 
 	//End Registrations for type : UnityEngine.Rigidbody
 
