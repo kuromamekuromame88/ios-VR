@@ -217,7 +217,6 @@ class BoxCollider; template <> void RegisterUnityClass<BoxCollider>(const char*)
 class Collider; template <> void RegisterUnityClass<Collider>(const char*);
 class PhysicsManager; template <> void RegisterUnityClass<PhysicsManager>(const char*);
 class Rigidbody; template <> void RegisterUnityClass<Rigidbody>(const char*);
-class SphereCollider; template <> void RegisterUnityClass<SphereCollider>(const char*);
 class Physics2DSettings; template <> void RegisterUnityClass<Physics2DSettings>(const char*);
 class PhysicsCoreProjectSettings2D; template <> void RegisterUnityClass<PhysicsCoreProjectSettings2D>(const char*);
 class Terrain; template <> void RegisterUnityClass<Terrain>(const char*);
@@ -241,7 +240,7 @@ void RegisterAllClasses()
 {
 void RegisterBuiltinTypes();
 RegisterBuiltinTypes();
-	//Total: 94 non stripped classes
+	//Total: 93 non stripped classes
 	//0. AnimationClip
 	RegisterUnityClass<AnimationClip>("Animation");
 	//1. Animator
@@ -392,43 +391,41 @@ RegisterBuiltinTypes();
 	RegisterUnityClass<PhysicsManager>("Physics");
 	//74. Rigidbody
 	RegisterUnityClass<Rigidbody>("Physics");
-	//75. SphereCollider
-	RegisterUnityClass<SphereCollider>("Physics");
-	//76. Physics2DSettings
+	//75. Physics2DSettings
 	RegisterUnityClass<Physics2DSettings>("Physics2D");
-	//77. PhysicsCoreProjectSettings2D
+	//76. PhysicsCoreProjectSettings2D
 	RegisterUnityClass<PhysicsCoreProjectSettings2D>("PhysicsCore2D");
-	//78. Terrain
+	//77. Terrain
 	RegisterUnityClass<Terrain>("Terrain");
-	//79. TerrainData
+	//78. TerrainData
 	RegisterUnityClass<TerrainData>("Terrain");
-	//80. Font
+	//79. Font
 	RegisterUnityClass<TextRendering::Font>("TextRendering");
-	//81. TextMesh
+	//80. TextMesh
 	RegisterUnityClass<TextRenderingPrivate::TextMesh>("TextRendering");
-	//82. Canvas
+	//81. Canvas
 	RegisterUnityClass<UI::Canvas>("UI");
-	//83. CanvasGroup
+	//82. CanvasGroup
 	RegisterUnityClass<UI::CanvasGroup>("UI");
-	//84. CanvasRenderer
+	//83. CanvasRenderer
 	RegisterUnityClass<UI::CanvasRenderer>("UI");
-	//85. PanelRenderer
+	//84. PanelRenderer
 	RegisterUnityClass<PanelRenderer>("UIElements");
-	//86. UIAnimationBinder
+	//85. UIAnimationBinder
 	RegisterUnityClass<UIAnimationBinder>("UIElements");
-	//87. UIAnimationClip
+	//86. UIAnimationClip
 	RegisterUnityClass<UIAnimationClip>("UIElements");
-	//88. UIRenderer
+	//87. UIRenderer
 	RegisterUnityClass<UIRenderer>("UIElements");
-	//89. VFXManager
+	//88. VFXManager
 	RegisterUnityClass<VFXManager>("VFX");
-	//90. VFXRenderer
+	//89. VFXRenderer
 	RegisterUnityClass<VFXRenderer>("VFX");
-	//91. VisualEffect
+	//90. VisualEffect
 	RegisterUnityClass<VisualEffect>("VFX");
-	//92. VisualEffectAsset
+	//91. VisualEffectAsset
 	RegisterUnityClass<VisualEffectAsset>("VFX");
-	//93. VisualEffectObject
+	//92. VisualEffectObject
 	RegisterUnityClass<VisualEffectObject>("VFX");
 
 }
